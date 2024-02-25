@@ -1,0 +1,19 @@
+version: v1
+managed:
+  enabled: true
+  go_package_prefix:
+    default: github.com/mpapenbr/testrepo
+  java_multiple_files: true
+  java_package_prefix: "com.example.tutorial.protos"
+
+plugins:
+  - plugin: buf.build/protocolbuffers/go
+    out: gen/go
+    opt: paths=source_relative
+  - plugin: buf.build/protocolbuffers/ruby
+    out: gen/ruby
+    opt: paths=source_relative
+  - plugin: buf.build/protocolbuffers/java
+    out: gen/java
+  - plugin: buf.build/bufbuild/es
+    out: gen/es
