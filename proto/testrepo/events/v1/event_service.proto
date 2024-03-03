@@ -1,0 +1,27 @@
+syntax = "proto3";
+package testrepo.events.v1;
+
+
+
+import "testrepo/events/v1/event.proto";
+
+message GetEventsRequest {}
+
+message GetEventRequest {
+    oneof arg {
+        int32 id = 1;
+        string key = 2;
+    }
+
+}
+message GetEventResponse {
+    Event event = 1;
+}
+message GetEventsResponse {
+    Event event = 1;
+}
+
+service EventService {
+    rpc GetEvents(GetEventsRequest) returns (stream GetEventsResponse) {}
+    rpc GetEvent(GetEventRequest) returns (GetEventResponse) {}    
+}
