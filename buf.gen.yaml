@@ -13,10 +13,15 @@ plugins:
   - plugin: buf.build/protocolbuffers/go
     out: gen/go
     opt: paths=source_relative
+  - plugin: buf.build/connectrpc/go
+    out: gen/go
+    opt: paths=source_relative
   # - plugin: buf.build/protocolbuffers/ruby
   #   out: gen/ruby
   #   opt: paths=source_relative
   # - plugin: buf.build/protocolbuffers/java
   #   out: gen/java
-  # - plugin: buf.build/bufbuild/es
-  #   out: gen/es
+  - plugin: buf.build/bufbuild/es
+    out: gen/es
+  - plugin: buf.build/connectrpc/es
+    out: gen/es

@@ -1,0 +1,29 @@
+syntax = "proto3";
+package testrepo.provider.v1;
+
+import "testrepo/event/v1/event.proto";
+import "testrepo/track/v1/track.proto";
+
+service ProviderService {
+  rpc RegisterEvent(RegisterEventRequest) returns (RegisterEventResponse);
+  rpc UnregisterEvent(UnregisterEventRequest) returns (UnregisterEventResponse);
+  rpc ListLiveEvents(ListLiveEventsRequest) returns (stream ListLiveEventsResponse);
+}
+
+message RegisterEventRequest {
+  string key = 1;
+  testrepo.event.v1.Event event = 2;
+  testrepo.track.v1.Track t = 3;
+}
+
+message RegisterEventResponse {}
+
+message UnregisterEventRequest {
+  string key = 1;
+}
+
+message UnregisterEventResponse {}
+
+message ListLiveEventsRequest {}
+
+message ListLiveEventsResponse {}

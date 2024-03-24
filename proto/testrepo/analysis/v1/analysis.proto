@@ -1,8 +1,8 @@
 syntax = "proto3";
 package testrepo.analysis.v1;
 
-import "testrepo/analysis/v1/carlaps.proto";
 import "testrepo/analysis/v1/carinfo.proto";
+import "testrepo/analysis/v1/carlaps.proto";
 import "testrepo/analysis/v1/carpit.proto";
 import "testrepo/analysis/v1/carstint.proto";
 import "testrepo/analysis/v1/racegraph.proto";
@@ -13,5 +13,4 @@ message Analysis {
   repeated CarPit car_pits = 3;
   repeated CarStint car_stints = 4;
   repeated RaceGraph race_graph = 5;
-
 }
