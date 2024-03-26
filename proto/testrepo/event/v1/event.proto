@@ -1,13 +1,15 @@
 syntax = "proto3";
 package testrepo.event.v1;
 
+import "google/protobuf/timestamp.proto";
+
 // Event
 message Event {
   uint32 id = 1;
   string key = 2;
   string name = 3;
   string description = 4;
-  string event_time = 5;
+  google.protobuf.Timestamp event_time = 5;
   string racelogger_version = 6;
   bool team_racing = 7;
   bool multi_class = 8;
@@ -20,4 +22,11 @@ message ReplayInfo {
   float min_timestamp = 1;
   float min_session_time = 2;
   float max_session_time = 3;
+}
+
+message EventSelector {
+  oneof arg {
+    int32 id = 1;
+    string key = 2;
+  }
 }

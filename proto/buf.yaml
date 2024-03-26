@@ -1,7 +1,7 @@
 version: v1
 name: buf.build/mpapenbr/testrepo
-# deps:
-#   - buf.build/googleapis/googleapis
+deps:
+  - buf.build/protocolbuffers/wellknowntypes
 
 breaking:
   use:

@@ -1,0 +1,18 @@
+syntax = "proto3";
+package testrepo.state.v1;
+
+import "google/protobuf/timestamp.proto";
+import "testrepo/event/v1/event.proto";
+import "testrepo/state/v1/state.proto";
+
+service StateService {
+  rpc PublishState(PublishStateRequest) returns (PublishStateResponse);
+}
+
+message PublishStateRequest {
+  testrepo.event.v1.EventSelector event = 1;
+  google.protobuf.Timestamp timestamp = 2;
+  testrepo.state.v1.Session session = 3;
+  repeated testrepo.state.v1.Car cars = 4;
+}
+message PublishStateResponse {}
