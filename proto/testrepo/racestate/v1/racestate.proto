@@ -1,5 +1,7 @@
 syntax = "proto3";
-package testrepo.state.v1;
+package testrepo.racestate.v1;
+
+import "testrepo/common/v1/common.proto";
 
 message Car {
   int32 car_idx = 1;
@@ -48,24 +50,13 @@ message Session {
   float air_density = 7;
   float air_pressure = 8;
   float track_temp = 9;
-  TrackWetness track_wetness = 10;
+  testrepo.common.v1.TrackWetness track_wetness = 10;
   float wind_dir = 11;
   float wind_vel = 12;
   float precipitation = 13;
   string flag_state = 14;
   int32 session_state_raw = 15;
   uint32 session_flags_raw = 16;
-}
-
-enum TrackWetness {
-  TRACK_WETNESS_UNSPECIFIED = 0;
-  TRACK_WETNESS_DRY = 1;
-  TRACK_WETNESS_MOSTLY_DRY = 2;
-  TRACK_WETNESS_VERY_LIGHTLY_WET = 3;
-  TRACK_WETNESS_LIGHTLY_WET = 4;
-  TRACK_WETNESS_MODERATELY_WET = 5;
-  TRACK_WETNESS_VERY_WET = 6;
-  TRACK_WETNESS_EXTREMELY_WET = 7;
 }
 
 enum CarState {
