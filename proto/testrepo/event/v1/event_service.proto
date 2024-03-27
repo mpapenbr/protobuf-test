@@ -6,10 +6,7 @@ import "testrepo/event/v1/event.proto";
 message GetEventsRequest {}
 
 message GetEventRequest {
-  oneof arg {
-    int32 id = 1;
-    string key = 2;
-  }
+  EventSelector event_selector = 1;
 }
 message GetEventResponse {
   Event event = 1;

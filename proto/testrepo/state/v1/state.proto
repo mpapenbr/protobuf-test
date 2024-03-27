@@ -43,7 +43,7 @@ message Session {
   float session_time = 2;
   float time_remain = 3;
   int32 laps_remain = 4;
-  string time_of_day = 5;
+  uint32 time_of_day = 5;
   float air_temp = 6;
   float air_density = 7;
   float air_pressure = 8;
@@ -54,7 +54,7 @@ message Session {
   float precipitation = 13;
   string flag_state = 14;
   int32 session_state_raw = 15;
-  int32 session_flags_raw = 16;
+  uint32 session_flags_raw = 16;
 }
 
 enum TrackWetness {

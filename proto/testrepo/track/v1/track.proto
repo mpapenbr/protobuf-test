@@ -9,6 +9,7 @@ message Track {
   float length = 5;
   repeated Sector sectors = 6;
   PitInfo pit_info = 7;
+  float pit_speed = 8;
 }
 
 message Sector {

@@ -8,7 +8,7 @@ service ProviderService {
   rpc RegisterEvent(RegisterEventRequest) returns (RegisterEventResponse);
   rpc ListLiveEvents(ListLiveEventsRequest) returns (stream ListLiveEventsResponse);
   rpc UnregisterEvent(UnregisterEventRequest) returns (UnregisterEventResponse);
-  rpc UnregisterAll(UnregisterAllRequest) returns (UnregisterAllResponse);
+  rpc UnregisterAll(UnregisterAllRequest) returns (stream UnregisterAllResponse);
 }
 
 message RegisterEventRequest {
@@ -29,7 +29,7 @@ message UnregisterEventResponse {}
 
 message UnregisterAllRequest {}
 message UnregisterAllResponse {
-  repeated testrepo.event.v1.Event event = 1;
+  testrepo.event.v1.Event event = 1;
 }
 
 message ListLiveEventsRequest {}
