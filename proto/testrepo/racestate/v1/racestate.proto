@@ -68,3 +68,23 @@ enum CarState {
   CAR_STATE_FIN = 5;
   CAR_STATE_OUT = 6;
 }
+
+message Message {
+  MessageType type = 1;
+  MessageSubType sub_type = 2;
+  uint32 car_idx = 3;
+  string car_num = 4;
+  string car_class = 5;
+  string msg = 6;
+}
+
+enum MessageType {
+  MESSAGE_TYPE_UNSPECIFIED = 0;
+  MESSAGE_TYPE_PITS = 1;
+  MESSAGE_TYPE_TIMING = 2;
+}
+enum MessageSubType {
+  MESSAGE_SUB_TYPE_UNSPECIFIED = 0;
+  MESSAGE_SUB_TYPE_DRIVER = 1;
+  MESSAGE_SUB_TYPE_RACE_CONTROL = 2;
+}

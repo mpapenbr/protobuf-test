@@ -1,0 +1,10 @@
+syntax = "proto3";
+package testrepo.analysis.v1;
+
+import "testrepo/racestate/v1/racestate.proto";
+
+message CarComputeState {
+  string car_num = 1;
+  testrepo.racestate.v1.CarState car_state = 2;
+  float out_encountered = 3;
+}

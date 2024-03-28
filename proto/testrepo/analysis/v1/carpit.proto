@@ -11,7 +11,7 @@ message CarPit {
 message PitInfo {
   string car_num = 1;
   float enter_time = 2;
-  float leave_time = 3;
+  float exit_time = 3;
   int32 lap_enter = 4;
   int32 lap_exit = 5;
   float lane_time = 6;

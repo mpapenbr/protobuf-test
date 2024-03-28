@@ -18,6 +18,7 @@ message PublishStateRequest {
   google.protobuf.Timestamp timestamp = 2;
   testrepo.racestate.v1.Session session = 3;
   repeated testrepo.racestate.v1.Car cars = 4;
+  repeated testrepo.racestate.v1.Message messages = 5;
 }
 message PublishSpeedmapRequest {
   testrepo.event.v1.EventSelector event = 1;
