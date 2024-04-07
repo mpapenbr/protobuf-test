@@ -18,6 +18,7 @@ message Event {
   int32 ir_session_id = 11;
   uint32 track_id = 12;
   repeated Session sessions = 13;
+  float pit_speed = 14;
 }
 
 message Session {

@@ -23,5 +23,9 @@ plugins:
   #   out: gen/java
   - plugin: buf.build/bufbuild/es
     out: gen/es
+    opt: target=ts
+  - plugin: buf.build/community/timostamm-protobuf-ts
+    out: gen/es-timo
+
   - plugin: buf.build/connectrpc/es
     out: gen/es

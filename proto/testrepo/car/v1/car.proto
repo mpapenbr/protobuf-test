@@ -3,6 +3,12 @@ package testrepo.car.v1;
 
 import "testrepo/driver/v1/driver.proto";
 
+message CarEntry {
+  Car car = 1;
+  testrepo.driver.v1.Team team = 2;
+  repeated testrepo.driver.v1.Driver drivers = 3;
+}
+
 message Car {
   uint32 car_id = 1;
   uint32 car_idx = 2;
@@ -14,12 +20,6 @@ message Car {
 message CarClass {
   uint32 id = 1;
   string name = 2;
-}
-
-message CarEntry {
-  Car car = 1;
-  testrepo.driver.v1.Team team = 2;
-  repeated testrepo.driver.v1.Driver drivers = 3;
 }
 
 message CarInfo {

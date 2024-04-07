@@ -6,9 +6,9 @@ import "testrepo/track/v1/track.proto";
 
 service ProviderService {
   rpc RegisterEvent(RegisterEventRequest) returns (RegisterEventResponse);
-  rpc ListLiveEvents(ListLiveEventsRequest) returns (stream ListLiveEventsResponse);
+  rpc ListLiveEvents(ListLiveEventsRequest) returns (ListLiveEventsResponse);
   rpc UnregisterEvent(UnregisterEventRequest) returns (UnregisterEventResponse);
-  rpc UnregisterAll(UnregisterAllRequest) returns (stream UnregisterAllResponse);
+  rpc UnregisterAll(UnregisterAllRequest) returns (UnregisterAllResponse);
 }
 
 message RegisterEventRequest {
@@ -29,11 +29,14 @@ message UnregisterEventResponse {}
 
 message UnregisterAllRequest {}
 message UnregisterAllResponse {
-  testrepo.event.v1.Event event = 1;
+  repeated LiveEventContainer events = 1;
 }
 
 message ListLiveEventsRequest {}
-
-message ListLiveEventsResponse {
+message LiveEventContainer {
   testrepo.event.v1.Event event = 1;
+  testrepo.track.v1.Track track = 2;
+}
+message ListLiveEventsResponse {
+  repeated LiveEventContainer events = 1;
 }
