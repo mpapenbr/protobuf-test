@@ -15,6 +15,8 @@ message RegisterEventRequest {
   string key = 1;
   testrepo.event.v1.Event event = 2;
   testrepo.track.v1.Track track = 3;
+  // used for testing or performance aspects
+  RecordingMode recording_mode = 4;
 }
 
 message RegisterEventResponse {
@@ -39,4 +41,9 @@ message LiveEventContainer {
 }
 message ListLiveEventsResponse {
   repeated LiveEventContainer events = 1;
+}
+
+enum RecordingMode {
+  RECORDING_MODE_UNSPECIFIED = 0;
+  RECORDING_MODE_DO_NOT_PERSIST = 1;
 }
