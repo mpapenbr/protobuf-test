@@ -45,5 +45,6 @@ message ListLiveEventsResponse {
 
 enum RecordingMode {
   RECORDING_MODE_UNSPECIFIED = 0;
-  RECORDING_MODE_DO_NOT_PERSIST = 1;
+  RECORDING_MODE_PERSIST = 1;
+  RECORDING_MODE_DO_NOT_PERSIST = 2;
 }

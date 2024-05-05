@@ -11,6 +11,7 @@ message GetEventRequest {
 message GetEventResponse {
   Event event = 1;
 }
+
 message GetEventsResponse {
   Event event = 1;
 }
@@ -21,8 +22,13 @@ message CreateEventResponse {
   Event event = 1;
 }
 
+message DeleteEventRequest {
+  EventSelector event_selector = 1;
+}
+message DeleteEventResponse {}
+
 service EventService {
   rpc GetEvents(GetEventsRequest) returns (stream GetEventsResponse) {}
   rpc GetEvent(GetEventRequest) returns (GetEventResponse) {}
-  // rpc CreateEvent(CreateEventRequest) returns (CreateEventResponse) {}
+  rpc DeleteEvent(DeleteEventRequest) returns (DeleteEventResponse) {}
 }
