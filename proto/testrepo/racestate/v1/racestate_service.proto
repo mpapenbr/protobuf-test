@@ -11,6 +11,9 @@ service RaceStateService {
   rpc PublishState(PublishStateRequest) returns (PublishStateResponse);
   rpc PublishSpeedmap(PublishSpeedmapRequest) returns (PublishSpeedmapResponse);
   rpc PublishDriverData(PublishDriverDataRequest) returns (PublishDriverDataResponse);
+  rpc GetStates(GetStatesRequest) returns (GetStatesResponse);
+  rpc GetSpeedmaps(GetSpeedmapsRequest) returns (GetSpeedmapsResponse);
+  rpc GetDriverData(GetDriverDataRequest) returns (GetDriverDataResponse);
 }
 
 message PublishStateRequest {
@@ -40,3 +43,31 @@ message PublishDriverDataRequest {
 message PublishStateResponse {}
 message PublishSpeedmapResponse {}
 message PublishDriverDataResponse {}
+
+message GetStatesRequest {
+  testrepo.event.v1.EventSelector event = 1;
+  google.protobuf.Timestamp start = 2;
+  int32 num = 3;
+}
+message GetSpeedmapsRequest {
+  testrepo.event.v1.EventSelector event = 1;
+  google.protobuf.Timestamp start = 2;
+  int32 num = 3;
+}
+message GetDriverDataRequest {
+  testrepo.event.v1.EventSelector event = 1;
+  google.protobuf.Timestamp start = 2;
+  int32 num = 3;
+}
+
+message GetStatesResponse {
+  repeated PublishStateRequest states = 1;
+}
+
+message GetSpeedmapsResponse {
+  repeated PublishSpeedmapRequest speedmaps = 1;
+}
+
+message GetDriverDataResponse {
+  repeated PublishDriverDataRequest driver_data = 1;
+}

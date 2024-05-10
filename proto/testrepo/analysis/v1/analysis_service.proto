@@ -1,0 +1,16 @@
+syntax = "proto3";
+package testrepo.analysis.v1;
+
+import "testrepo/analysis/v1/analysis.proto";
+import "testrepo/event/v1/event.proto";
+
+message GetAnalysisRequest {
+  testrepo.event.v1.EventSelector event_selector = 1;
+}
+message GetAnalysisResponse {
+  Analysis analysis = 1;
+}
+
+service AnalysisService {
+  rpc GetAnalysis(GetAnalysisRequest) returns (GetAnalysisResponse) {}
+}

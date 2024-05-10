@@ -8,6 +8,15 @@ message GetEventsRequest {}
 message GetEventRequest {
   EventSelector event_selector = 1;
 }
+
+message GetLatestEventsRequest {
+  int32 offset = 1;
+  int32 limit = 2;
+}
+message GetLatestEventsResponse {
+  repeated Event events = 1;
+}
+
 message GetEventResponse {
   Event event = 1;
 }
@@ -31,4 +40,5 @@ service EventService {
   rpc GetEvents(GetEventsRequest) returns (stream GetEventsResponse) {}
   rpc GetEvent(GetEventRequest) returns (GetEventResponse) {}
   rpc DeleteEvent(DeleteEventRequest) returns (DeleteEventResponse) {}
+  rpc GetLatestEvents(GetLatestEventsRequest) returns (GetLatestEventsResponse) {}
 }
