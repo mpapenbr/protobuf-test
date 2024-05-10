@@ -3,7 +3,7 @@ package testrepo.racestate.v1;
 
 import "google/protobuf/timestamp.proto";
 import "testrepo/car/v1/car.proto";
-import "testrepo/event/v1/event.proto";
+import "testrepo/common/v1/common.proto";
 import "testrepo/racestate/v1/racestate.proto";
 import "testrepo/speedmap/v1/speedmap.proto";
 
@@ -17,21 +17,21 @@ service RaceStateService {
 }
 
 message PublishStateRequest {
-  testrepo.event.v1.EventSelector event = 1;
+  testrepo.common.v1.EventSelector event = 1;
   google.protobuf.Timestamp timestamp = 2;
   testrepo.racestate.v1.Session session = 3;
   repeated testrepo.racestate.v1.Car cars = 4;
   repeated testrepo.racestate.v1.Message messages = 5;
 }
 message PublishSpeedmapRequest {
-  testrepo.event.v1.EventSelector event = 1;
+  testrepo.common.v1.EventSelector event = 1;
   google.protobuf.Timestamp timestamp = 2;
   testrepo.speedmap.v1.Speedmap speedmap = 3;
 }
 
 // sent when driver data changed
 message PublishDriverDataRequest {
-  testrepo.event.v1.EventSelector event = 1;
+  testrepo.common.v1.EventSelector event = 1;
   google.protobuf.Timestamp timestamp = 2;
   repeated testrepo.car.v1.CarEntry entries = 3;
   repeated testrepo.car.v1.CarInfo cars = 4;
@@ -45,17 +45,17 @@ message PublishSpeedmapResponse {}
 message PublishDriverDataResponse {}
 
 message GetStatesRequest {
-  testrepo.event.v1.EventSelector event = 1;
+  testrepo.common.v1.EventSelector event = 1;
   google.protobuf.Timestamp start = 2;
   int32 num = 3;
 }
 message GetSpeedmapsRequest {
-  testrepo.event.v1.EventSelector event = 1;
+  testrepo.common.v1.EventSelector event = 1;
   google.protobuf.Timestamp start = 2;
   int32 num = 3;
 }
 message GetDriverDataRequest {
-  testrepo.event.v1.EventSelector event = 1;
+  testrepo.common.v1.EventSelector event = 1;
   google.protobuf.Timestamp start = 2;
   int32 num = 3;
 }

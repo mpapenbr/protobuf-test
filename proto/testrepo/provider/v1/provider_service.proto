@@ -1,6 +1,7 @@
 syntax = "proto3";
 package testrepo.provider.v1;
 
+import "testrepo/common/v1/common.proto";
 import "testrepo/event/v1/event.proto";
 import "testrepo/track/v1/track.proto";
 
@@ -24,7 +25,7 @@ message RegisterEventResponse {
 }
 
 message UnregisterEventRequest {
-  testrepo.event.v1.EventSelector event_selector = 1;
+  testrepo.common.v1.EventSelector event_selector = 1;
 }
 
 message UnregisterEventResponse {}

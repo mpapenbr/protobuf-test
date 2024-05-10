@@ -33,3 +33,9 @@ message CarInfo {
   float weight_penalty = 8;
   int32 dry_tire_sets = 9;
 }
+
+message CarContainer {
+  repeated CarEntry entries = 1;
+  repeated CarInfo cars = 2;
+  repeated CarClass car_classes = 3;
+}

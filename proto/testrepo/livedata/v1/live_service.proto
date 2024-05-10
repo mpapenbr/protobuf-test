@@ -10,7 +10,7 @@ import "testrepo/analysis/v1/car_pit.proto";
 import "testrepo/analysis/v1/car_stint.proto";
 import "testrepo/analysis/v1/racegraph.proto";
 import "testrepo/car/v1/car.proto";
-import "testrepo/event/v1/event.proto";
+import "testrepo/common/v1/common.proto";
 import "testrepo/racestate/v1/racestate.proto";
 import "testrepo/speedmap/v1/speedmap.proto";
 
@@ -31,7 +31,7 @@ service LiveDataService {
 }
 
 message LiveRaceStateRequest {
-  testrepo.event.v1.EventSelector event = 1;
+  testrepo.common.v1.EventSelector event = 1;
 }
 message LiveRaceStateResponse {
   google.protobuf.Timestamp timestamp = 1;
@@ -40,42 +40,42 @@ message LiveRaceStateResponse {
   repeated testrepo.racestate.v1.Message messages = 4;
 }
 message LiveSpeedmapRequest {
-  testrepo.event.v1.EventSelector event = 1;
+  testrepo.common.v1.EventSelector event = 1;
 }
 message LiveSpeedmapResponse {
   google.protobuf.Timestamp timestamp = 1;
   testrepo.speedmap.v1.Speedmap speedmap = 2;
 }
 message LiveAnalysisRequest {
-  testrepo.event.v1.EventSelector event = 1;
+  testrepo.common.v1.EventSelector event = 1;
 }
 message LiveAnalysisResponse {
   google.protobuf.Timestamp timestamp = 1;
   testrepo.analysis.v1.Analysis analysis = 2;
 }
 message LiveCarOccupanciesRequest {
-  testrepo.event.v1.EventSelector event = 1;
+  testrepo.common.v1.EventSelector event = 1;
 }
 message LiveCarOccupanciesResponse {
   google.protobuf.Timestamp timestamp = 1;
   repeated testrepo.analysis.v1.CarOccupancy car_occupancies = 2;
 }
 message LiveCarStintsRequest {
-  testrepo.event.v1.EventSelector event = 1;
+  testrepo.common.v1.EventSelector event = 1;
 }
 message LiveCarStintsResponse {
   google.protobuf.Timestamp timestamp = 1;
   repeated testrepo.analysis.v1.CarStint car_stints = 2;
 }
 message LiveCarPitsRequest {
-  testrepo.event.v1.EventSelector event = 1;
+  testrepo.common.v1.EventSelector event = 1;
 }
 message LiveCarPitsResponse {
   google.protobuf.Timestamp timestamp = 1;
   repeated testrepo.analysis.v1.CarPit car_pits = 2;
 }
 message LiveAnalysisSelRequest {
-  testrepo.event.v1.EventSelector event = 1;
+  testrepo.common.v1.EventSelector event = 1;
   AnalysisSelector selector = 2;
 }
 message LiveAnalysisSelResponse {
@@ -107,7 +107,7 @@ enum AnalysisComponent {
 }
 
 message LiveDriverDataRequest {
-  testrepo.event.v1.EventSelector event = 1;
+  testrepo.common.v1.EventSelector event = 1;
 }
 message LiveDriverDataResponse {
   google.protobuf.Timestamp timestamp = 1;

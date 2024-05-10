@@ -11,3 +11,10 @@ enum TrackWetness {
   TRACK_WETNESS_VERY_WET = 6;
   TRACK_WETNESS_EXTREMELY_WET = 7;
 }
+
+message EventSelector {
+  oneof arg {
+    int32 id = 1;
+    string key = 2;
+  }
+}

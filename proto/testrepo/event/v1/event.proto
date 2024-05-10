@@ -31,10 +31,3 @@ message ReplayInfo {
   float min_session_time = 2;
   float max_session_time = 3;
 }
-
-message EventSelector {
-  oneof arg {
-    int32 id = 1;
-    string key = 2;
-  }
-}

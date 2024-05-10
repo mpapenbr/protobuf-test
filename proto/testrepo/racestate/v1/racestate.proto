@@ -88,3 +88,9 @@ enum MessageSubType {
   MESSAGE_SUB_TYPE_DRIVER = 1;
   MESSAGE_SUB_TYPE_RACE_CONTROL = 2;
 }
+
+message StateContainer {
+  Session session = 1;
+  repeated Car cars = 2;
+  repeated Message messages = 3;
+}
