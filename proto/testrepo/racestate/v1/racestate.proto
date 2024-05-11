@@ -1,6 +1,7 @@
 syntax = "proto3";
 package testrepo.racestate.v1;
 
+import "google/protobuf/timestamp.proto";
 import "testrepo/common/v1/common.proto";
 
 message Car {
@@ -89,8 +90,14 @@ enum MessageSubType {
   MESSAGE_SUB_TYPE_RACE_CONTROL = 2;
 }
 
+message MessageContainer {
+  Message message = 1;
+  float session_time = 2;
+  google.protobuf.Timestamp timestamp = 3;
+}
+
 message StateContainer {
   Session session = 1;
   repeated Car cars = 2;
-  repeated Message messages = 3;
+  repeated MessageContainer messages = 3;
 }

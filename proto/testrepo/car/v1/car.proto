@@ -38,4 +38,5 @@ message CarContainer {
   repeated CarEntry entries = 1;
   repeated CarInfo cars = 2;
   repeated CarClass car_classes = 3;
+  map<uint32, string> current_drivers = 4;
 }
