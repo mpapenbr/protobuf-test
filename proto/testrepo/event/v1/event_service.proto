@@ -6,6 +6,7 @@ import "testrepo/car/v1/car.proto";
 import "testrepo/common/v1/common.proto";
 import "testrepo/event/v1/event.proto";
 import "testrepo/racestate/v1/racestate.proto";
+import "testrepo/speedmap/v1/speedmap.proto";
 import "testrepo/track/v1/track.proto";
 
 message GetEventsRequest {}
@@ -28,6 +29,7 @@ message GetEventResponse {
   testrepo.analysis.v1.Analysis analysis = 3;
   testrepo.racestate.v1.StateContainer state = 4;
   testrepo.car.v1.CarContainer car = 5;
+  testrepo.speedmap.v1.Speedmap speedmap = 6;
 }
 
 message GetEventsResponse {

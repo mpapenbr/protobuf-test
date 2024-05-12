@@ -19,6 +19,7 @@ message Event {
   uint32 track_id = 12;
   repeated Session sessions = 13;
   float pit_speed = 14;
+  ReplayInfo replay_info = 15;
 }
 
 message Session {
@@ -27,7 +28,7 @@ message Session {
 }
 
 message ReplayInfo {
-  float min_timestamp = 1;
+  google.protobuf.Timestamp min_timestamp = 1;
   float min_session_time = 2;
   float max_session_time = 3;
 }
