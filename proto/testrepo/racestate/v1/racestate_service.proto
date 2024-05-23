@@ -11,6 +11,8 @@ service RaceStateService {
   rpc PublishState(PublishStateRequest) returns (PublishStateResponse);
   rpc PublishSpeedmap(PublishSpeedmapRequest) returns (PublishSpeedmapResponse);
   rpc PublishDriverData(PublishDriverDataRequest) returns (PublishDriverDataResponse);
+  rpc PublishEventExtraInfo(PublishEventExtraInfoRequest) returns (PublishEventExtraInfoResponse);
+
   rpc GetStates(GetStatesRequest) returns (GetStatesResponse);
   rpc GetSpeedmaps(GetSpeedmapsRequest) returns (GetSpeedmapsResponse);
   rpc GetDriverData(GetDriverDataRequest) returns (GetDriverDataResponse);
@@ -40,9 +42,17 @@ message PublishDriverDataRequest {
   map<uint32, string> current_drivers = 7;
 }
 
+// sent when event is finished. Backend decides what to do with these informations
+message PublishEventExtraInfoRequest {
+  testrepo.common.v1.EventSelector event = 1;
+  google.protobuf.Timestamp timestamp = 2;
+  testrepo.racestate.v1.ExtraInfo extra_info = 3;
+}
+
 message PublishStateResponse {}
 message PublishSpeedmapResponse {}
 message PublishDriverDataResponse {}
+message PublishEventExtraInfoResponse {}
 
 message GetStatesRequest {
   testrepo.common.v1.EventSelector event = 1;
@@ -62,12 +72,15 @@ message GetDriverDataRequest {
 
 message GetStatesResponse {
   repeated PublishStateRequest states = 1;
+  google.protobuf.Timestamp last_ts = 2;
 }
 
 message GetSpeedmapsResponse {
   repeated PublishSpeedmapRequest speedmaps = 1;
+  google.protobuf.Timestamp last_ts = 2;
 }
 
 message GetDriverDataResponse {
   repeated PublishDriverDataRequest driver_data = 1;
+  google.protobuf.Timestamp last_ts = 2;
 }

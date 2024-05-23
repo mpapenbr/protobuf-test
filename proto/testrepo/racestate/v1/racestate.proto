@@ -3,6 +3,7 @@ package testrepo.racestate.v1;
 
 import "google/protobuf/timestamp.proto";
 import "testrepo/common/v1/common.proto";
+import "testrepo/track/v1/track.proto";
 
 message Car {
   int32 car_idx = 1;
@@ -100,4 +101,8 @@ message StateContainer {
   Session session = 1;
   repeated Car cars = 2;
   repeated MessageContainer messages = 3;
+}
+
+message ExtraInfo {
+  testrepo.track.v1.PitInfo pit_info = 1;
 }

@@ -1,6 +1,7 @@
 syntax = "proto3";
 package testrepo.provider.v1;
 
+import "google/protobuf/timestamp.proto";
 import "testrepo/common/v1/common.proto";
 import "testrepo/event/v1/event.proto";
 import "testrepo/track/v1/track.proto";
@@ -10,6 +11,8 @@ service ProviderService {
   rpc ListLiveEvents(ListLiveEventsRequest) returns (ListLiveEventsResponse);
   rpc UnregisterEvent(UnregisterEventRequest) returns (UnregisterEventResponse);
   rpc UnregisterAll(UnregisterAllRequest) returns (UnregisterAllResponse);
+  rpc VersionCheck(VersionCheckRequest) returns (VersionCheckResponse);
+  rpc Ping(PingRequest) returns (PingResponse);
 }
 
 message RegisterEventRequest {
@@ -48,4 +51,21 @@ enum RecordingMode {
   RECORDING_MODE_UNSPECIFIED = 0;
   RECORDING_MODE_PERSIST = 1;
   RECORDING_MODE_DO_NOT_PERSIST = 2;
+}
+
+message VersionCheckRequest {
+  string racelogger_version = 1;
+}
+message VersionCheckResponse {
+  string server_version = 1;
+  string provided_racelogger_version = 2;
+  string supported_racelogger_version = 3;
+  bool racelogger_compatible = 4;
+}
+message PingRequest {
+  int32 num = 1;
+}
+message PingResponse {
+  int32 num = 1;
+  google.protobuf.Timestamp timestamp = 2;
 }
